@@ -6,6 +6,7 @@ import Layout from './layout/Layout'
 import Home from './pages/Home/Home'
 import SignUp from './pages/SignUp/SignUp';
 import Login from './pages/Login/Login';
+import Profile from './pages/Profile/Profile';
 
 
 const router = createBrowserRouter([
@@ -46,8 +47,8 @@ const router = createBrowserRouter([
         // element: <Like/> 
       },
       {
-        path: "profile",
-        // element: <Profile/> 
+        path: "Profile",
+        element: <Profile/> 
       },
       {
         path: "editProfile",
