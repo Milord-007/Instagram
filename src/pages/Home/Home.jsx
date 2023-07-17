@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import "./Home.css"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Avatar from '@mui/material/Avatar';
@@ -12,10 +13,18 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { Warning } from 'postcss';
 
+
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 
 function Home() {
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const handleSubscribe = () => {
+    setIsSubscribed(true);
+  };
+  const handleSubscribe2 = () => {
+    setIsSubscribed(false);
+  };
   return (
     <div className='md:pt-[17%] md:p-2   dark:bg-[#000] dark:text-white flex flex-wrap  '>
       <div className='w-[60%] md:p-0  md:w-full'>
@@ -244,7 +253,18 @@ function Home() {
             <Avatar alt="Milord" src={me}   sx={{ width: 40, height: 40 }} />
             <div className='flex flex-col'>
            <span className='font-[600]'>milord__007</span>
-            <p className='text-[grey]'>Подписан(-а) eur1725 <span className='pl-[20px] text-[#0066ff]'>Подписаться</span></p>
+            <p className='text-[grey]'>Подписан(-а) eur1725 
+            {!isSubscribed ? (
+        <button
+          className="pl-[20px] text-[#0066ff]"
+          onClick={handleSubscribe}
+        >
+          Подписаться
+        </button>
+      ) : (
+        <button onClick={handleSubscribe2}>Вы подписаны ✅</button>
+      )}
+            </p>
            </div>
           
             </div>
@@ -253,7 +273,9 @@ function Home() {
             <Avatar alt="Milord" src={me}   sx={{ width: 40, height: 40 }} />
             <div className='flex flex-col'>
            <span className='font-[600]'>milord__007</span>
-            <p  className='text-[grey]'>Подписан(-а) eur1725 <span className='pl-[20px] text-[#0066ff]'>Подписаться</span></p>
+            <p  className='text-[grey]'>Подписан(-а) eur1725
+ 
+            </p>
            </div>
           
             </div>

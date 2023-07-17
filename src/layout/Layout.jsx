@@ -228,8 +228,10 @@ const handleClose2 = () => {
         <footer className="  md:fixed bottom-0 md:w-full border-t-2">
           <div className="hidden md:flex bg-white dark:bg-[#000] items-center justify-evenly h-[50px]" >
             <div>
+              <Link to={"/"}>
             <svg aria-label="Главная" className="_ab6- dark:hidden" color="rgb(245, 245, 245)" fill="black" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M22 23h-6.001a1 1 0 0 1-1-1v-5.455a2.997 2.997 0 1 0-5.993 0V22a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V11.543a1.002 1.002 0 0 1 .31-.724l10-9.543a1.001 1.001 0 0 1 1.38 0l10 9.543a1.002 1.002 0 0 1 .31.724V22a1 1 0 0 1-1 1Z"></path></svg>
             <svg aria-label="Главная" className="_ab6- hidden dark:block" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M22 23h-6.001a1 1 0 0 1-1-1v-5.455a2.997 2.997 0 1 0-5.993 0V22a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V11.543a1.002 1.002 0 0 1 .31-.724l10-9.543a1.001 1.001 0 0 1 1.38 0l10 9.543a1.002 1.002 0 0 1 .31.724V22a1 1 0 0 1-1 1Z"></path></svg>
+              </Link>
             </div>
 
 
@@ -259,7 +261,9 @@ const handleClose2 = () => {
             </div>
 
             <div>
+              <Link to={'profile'}>
             <Avatar alt="Ardasher" src="/static/images/avatar/1.jpg"   sx={{ width: 35, height: 35 }} />
+              </Link>
             </div>
 
 
@@ -277,13 +281,14 @@ const handleClose2 = () => {
         // MenuListProps={{ч1ч1
         //   'aria-labelledby': 'basic-button',
         // }}
-      > 
+      > <Link to={"editPassword"}>
         <MenuItem onClick={handleClose2} sx={{padding:"15px"}} className="dark:bg-[#232323] dark:hover:bg-[#000] dark:text-white">
         <svg aria-label="Параметры" className="x1lliihq x1n2onr6 mr-3 dark:hidden" color="black" fill="black" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Параметры</title><circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle><path d="M14.232 3.656a1.269 1.269 0 0 1-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 0 1-.796.66m-.001 16.688a1.269 1.269 0 0 1 .796.66l.505.996h1.862l.505-.996a1.269 1.269 0 0 1 .796-.66M3.656 9.768a1.269 1.269 0 0 1-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 0 1 .66.796m16.688-.001a1.269 1.269 0 0 1 .66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 0 1-.66-.796M7.678 4.522a1.269 1.269 0 0 1-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 0 1-.096 1.03m11.8 11.799a1.269 1.269 0 0 1 1.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 0 1 .096-1.03m-14.956.001a1.269 1.269 0 0 1 .096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 0 1 1.03.096m11.799-11.8a1.269 1.269 0 0 1-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 0 1-1.03-.096" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
         <svg aria-label="Параметры" className="x1lliihq x1n2onr6 hidden dark:block mr-3" color="rgb(245, 245, 245)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Параметры</title><circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle><path d="M14.232 3.656a1.269 1.269 0 0 1-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 0 1-.796.66m-.001 16.688a1.269 1.269 0 0 1 .796.66l.505.996h1.862l.505-.996a1.269 1.269 0 0 1 .796-.66M3.656 9.768a1.269 1.269 0 0 1-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 0 1 .66.796m16.688-.001a1.269 1.269 0 0 1 .66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 0 1-.66-.796M7.678 4.522a1.269 1.269 0 0 1-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 0 1-.096 1.03m11.8 11.799a1.269 1.269 0 0 1 1.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 0 1 .096-1.03m-14.956.001a1.269 1.269 0 0 1 .096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 0 1 1.03.096m11.799-11.8a1.269 1.269 0 0 1-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 0 1-1.03-.096" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
 
           Настройки
           </MenuItem>
+      </Link>
         <MenuItem onClick={handleClose2} sx={{padding:"15px"}} className="dark:bg-[#232323] dark:hover:bg-[#000] dark:text-white">
         <svg aria-label="Ваши действия" className="x1lliihq x1n2onr6 dark:hidden  mr-3" color="black" fill="black" height="18" role="img" viewBox="0 0 24 24" width="18"><title>Ваши действия</title><path d="M12 1.505a10.5 10.5 0 1 1-7.424 17.924" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><polyline fill="none" points="8.893 15.108 12 12 12.012 12.012 12.012 5.793" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline><circle cx="7.24" cy="2.651" r="1.125"></circle><circle cx="3.515" cy="5.83" r="1.125"></circle><circle cx="1.636" cy="10.353" r="1.125"></circle><circle cx="2.01" cy="15.235" r="1.125"></circle></svg>
         <svg aria-label="Ваши действия" className="x1lliihq x1n2onr6 hidden dark:block mr-3" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="18" role="img" viewBox="0 0 24 24" width="18"><title>Ваши действия</title><path d="M12 1.505a10.5 10.5 0 1 1-7.424 17.924" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><polyline fill="none" points="8.893 15.108 12 12 12.012 12.012 12.012 5.793" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline><circle cx="7.24" cy="2.651" r="1.125"></circle><circle cx="3.515" cy="5.83" r="1.125"></circle><circle cx="1.636" cy="10.353" r="1.125"></circle><circle cx="2.01" cy="15.235" r="1.125"></circle></svg>
@@ -356,7 +361,7 @@ const handleClose2 = () => {
       <p className="text-center text-2xl">Вы точно хотите выйти?</p>
 
       <div className="w-full flex justify-evenly pt-8">
-        <button className="p-2 bg-[#000] w-[90px] text-white hover:bg-darkred">Нет</button>
+        <button onClick={handleClose4} className="p-2 bg-[#000] w-[90px] text-white hover:bg-darkred">Нет</button>
         <Link to={"/login"}>
         <button className="p-2 bg-[#000] w-[90px] text-white hover:bg-darkblue">Да</button>
         </Link>

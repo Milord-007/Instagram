@@ -7,6 +7,7 @@ import tel3 from "./img/tel3.png";
 import logo from "./img/logo.png";
 import google from "./img/google.png";
 import links from "./img/links.png";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [emoil, setEmoil] = useState("");
@@ -72,12 +73,12 @@ const Login = () => {
                         className="w-[100%] py-[8px] rounded-[5px] dark:bg-[#323232] dark:border-none disabled:bg-stone-400 text-[white]"
                       >
                         {" "}
-                        Sign Up{" "}
+                        Log In{" "}
                       </button>
                     ) : (
                       <button className="w-[100%] py-[8px] rounded-[5px] bg-[#0095F6] text-[white]">
                         {" "}
-                        Sign Up{" "}
+                        Log In{" "}
                       </button>
                     )}
                   </div>
@@ -101,7 +102,9 @@ const Login = () => {
             <div className="bg-[white] dark:bg-[#262626] dark:text-white py-[30px] m-auto mt-[20px]">
               <div className="flex justify-center gap-[5px]">
                 <p> You don’t have an account? </p>
+                <Link to={"/signUp"}>
                 <p className="text-[#0095F6] font-bold"> Join </p>
+                </Link>
               </div>
             </div>
             <p className="text-center mt-[20px] font-bold">

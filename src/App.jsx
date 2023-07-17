@@ -8,6 +8,7 @@ import SignUp from './pages/SignUp/SignUp';
 import Login from './pages/Login/Login'
 import Profile from './pages/Profile/Profile';
 import EditProfile from './pages/EditProfile/EditProfile';
+import EditPassword from './pages/EditPassword/EditPassword';
 
 
 const router = createBrowserRouter([
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: "editPassword",
-        // element: <EditPassword/> 
+        element: <EditPassword/> 
       },
       {
         path: "direct",
