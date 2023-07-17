@@ -9,3 +9,7 @@
   .stories::-webkit-scrollbar-thumb:hover {
     background-color: transparent; /* Set the hover color as transparent */
   }
+
+  .MuiCheckbox-root{
+    color:red
+  }

@@ -11,7 +11,22 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 // import { useMediaQuery } from '@mui/material';
+import Box from '@mui/material/Box';
+// import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 600,
+  bgcolor: 'background.paper',
+  border: '2px solid grey',
+  boxShadow: 24,
+  p: 4,
+};
 
 
 {/* <MoreHorizIcon /> */}
@@ -21,6 +36,37 @@ import { useTranslation } from 'react-i18next';
 
 
 const Layout = () => {
+// 
+const [anchorEl2, setAnchorEl2] = React.useState(null);
+const open2 = Boolean(anchorEl2);
+const handleClick2 = (event) => {
+  setAnchorEl2(event.currentTarget);
+};
+const handleClose2 = () => {
+  setAnchorEl2(null);
+};
+
+  // 
+
+  // 3
+  const [anchorEl3, setAnchorEl3] = React.useState(null);
+  const open3 = Boolean(anchorEl3);
+  const handleClick3 = (event) => {
+    setAnchorEl3(event.currentTarget);
+    handleClose2()
+  };
+  const handleClose3 = () => {
+    setAnchorEl3(null);
+    handleClick2(event)
+  };
+
+  // 3
+
+  // 4444444444444
+  const [open4, setOpen4] = React.useState(false);
+  const handleOpen4 = () => setOpen4(true);
+  const handleClose4 = () => setOpen4(false);
+  // 44444444444444
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -42,9 +88,8 @@ const Layout = () => {
       <div className=" max-w-[1450px] mx-auto  justify-between flex md:flex-col">
     
 
-        <div className="dark:bg-[#000] bg-[#ffffff]  h-[100vh] fixed md:flex border-r-2 md:border-r-0 md:border-b-2 z-20   md:w-full md:h-[80px] dark:text-black w-[20%] ">
-        <Switcher/>
-        <div className="hidden md:flex items-center justify-evenly w-full px-3">
+        <div className="dark:bg-[#000] bg-[#ffffff]  h-[100vh] left-0 top-0 sticky md:flex border-r-2 md:border-r-0 md:border-b-2 z-20   md:w-full md:h-[80px] dark:text-black w-[35%] ">
+        <div className="hidden md:flex items-center  w-full px-3">
        
           <div className="flex">
             <Link>
@@ -65,7 +110,7 @@ const Layout = () => {
     </Button>
             </div>
       <Menu 
-      
+       
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
@@ -74,8 +119,8 @@ const Layout = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose} className="">Подписки</MenuItem>
-        <MenuItem onClick={handleClose}>Избранное</MenuItem>
+        <MenuItem onClick={handleClose} className="dark:bg-[#232323] dark:hover:bg-[#000] dark:text-white">Подписки</MenuItem>
+        <MenuItem onClick={handleClose} className="dark:bg-[#232323] dark:hover:bg-[#000] dark:text-white">Избранное</MenuItem>
       
       </Menu>
           </div>
@@ -89,12 +134,12 @@ const Layout = () => {
           </div>
           </div>
 
-           <Link>
           <div className="pl-2">
+           <Link to={""}>
           <svg aria-label="Уведомления" className="x1lliihq x1n2onr6 dark:hidden" color="black" fill="black" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Уведомления</title><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"></path></svg>
           <svg aria-label="Уведомления" className="x1lliihq x1n2onr6 hidden dark:block" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Уведомления</title><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"></path></svg>
-          </div>
            </Link>
+          </div>
 
         </div>
           <div className="SLIDERR md:hidden px-[30px] py-[30px] ">
@@ -147,7 +192,7 @@ const Layout = () => {
              <p className="pt-1 font-[600]  dark:text-white">Уведомления</p>
             </li>
             </Link>
-            <Link>
+            <Link >
             <li className="flex gap-x-[20px] cursor-pointer mt-7">
             <svg aria-label="Новая публикация" className="_ab6- dark:hidden" color="black" fill="black" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="6.545" x2="17.455" y1="12.001" y2="12.001"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="12.003" x2="12.003" y1="6.545" y2="17.455"></line></svg>
             <svg aria-label="Новая публикация" className="_ab6- hidden dark:block" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="6.545" x2="17.455" y1="12.001" y2="12.001"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="12.003" x2="12.003" y1="6.545" y2="17.455"></line></svg>
@@ -164,7 +209,13 @@ const Layout = () => {
             </Link>
            </ul>
            
-             <div className="flex items-center mt-7">
+             <div className="flex items-center mt-7 cursor-pointer"   id="basic-button"
+        aria-controls={open2 ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open2 ? 'true' : undefined}
+        onClick={handleClick2}
+      
+        >
              <i className="fa-solid fa-bars  text-[30px] dark:text-white"></i>
              <p className=" ml-5 font-[600]  dark:text-white">Ещё</p>
              </div>
@@ -213,6 +264,107 @@ const Layout = () => {
 
 
           </div>
+
+
+          <Menu
+          // className="stories dark:bg-[#262626]"
+        id="basic-menu"
+        anchorEl={anchorEl2}
+        open={open2}
+        onClose={handleClose2}
+        sx={{width:"300px",height:"500px",border:"40px",marginBottom:"80px",dark:"bg-[#262626]"}}
+        style={{marginBottom:"90px",dark:"bg-[#262626]"}}
+        // MenuListProps={{ч1ч1
+        //   'aria-labelledby': 'basic-button',
+        // }}
+      > 
+        <MenuItem onClick={handleClose2} sx={{padding:"15px"}} className="dark:bg-[#232323] dark:hover:bg-[#000] dark:text-white">
+        <svg aria-label="Параметры" className="x1lliihq x1n2onr6 mr-3 dark:hidden" color="black" fill="black" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Параметры</title><circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle><path d="M14.232 3.656a1.269 1.269 0 0 1-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 0 1-.796.66m-.001 16.688a1.269 1.269 0 0 1 .796.66l.505.996h1.862l.505-.996a1.269 1.269 0 0 1 .796-.66M3.656 9.768a1.269 1.269 0 0 1-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 0 1 .66.796m16.688-.001a1.269 1.269 0 0 1 .66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 0 1-.66-.796M7.678 4.522a1.269 1.269 0 0 1-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 0 1-.096 1.03m11.8 11.799a1.269 1.269 0 0 1 1.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 0 1 .096-1.03m-14.956.001a1.269 1.269 0 0 1 .096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 0 1 1.03.096m11.799-11.8a1.269 1.269 0 0 1-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 0 1-1.03-.096" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
+        <svg aria-label="Параметры" className="x1lliihq x1n2onr6 hidden dark:block mr-3" color="rgb(245, 245, 245)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Параметры</title><circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle><path d="M14.232 3.656a1.269 1.269 0 0 1-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 0 1-.796.66m-.001 16.688a1.269 1.269 0 0 1 .796.66l.505.996h1.862l.505-.996a1.269 1.269 0 0 1 .796-.66M3.656 9.768a1.269 1.269 0 0 1-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 0 1 .66.796m16.688-.001a1.269 1.269 0 0 1 .66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 0 1-.66-.796M7.678 4.522a1.269 1.269 0 0 1-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 0 1-.096 1.03m11.8 11.799a1.269 1.269 0 0 1 1.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 0 1 .096-1.03m-14.956.001a1.269 1.269 0 0 1 .096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 0 1 1.03.096m11.799-11.8a1.269 1.269 0 0 1-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 0 1-1.03-.096" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
+
+          Настройки
+          </MenuItem>
+        <MenuItem onClick={handleClose2} sx={{padding:"15px"}} className="dark:bg-[#232323] dark:hover:bg-[#000] dark:text-white">
+        <svg aria-label="Ваши действия" className="x1lliihq x1n2onr6 dark:hidden  mr-3" color="black" fill="black" height="18" role="img" viewBox="0 0 24 24" width="18"><title>Ваши действия</title><path d="M12 1.505a10.5 10.5 0 1 1-7.424 17.924" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><polyline fill="none" points="8.893 15.108 12 12 12.012 12.012 12.012 5.793" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline><circle cx="7.24" cy="2.651" r="1.125"></circle><circle cx="3.515" cy="5.83" r="1.125"></circle><circle cx="1.636" cy="10.353" r="1.125"></circle><circle cx="2.01" cy="15.235" r="1.125"></circle></svg>
+        <svg aria-label="Ваши действия" className="x1lliihq x1n2onr6 hidden dark:block mr-3" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="18" role="img" viewBox="0 0 24 24" width="18"><title>Ваши действия</title><path d="M12 1.505a10.5 10.5 0 1 1-7.424 17.924" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><polyline fill="none" points="8.893 15.108 12 12 12.012 12.012 12.012 5.793" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline><circle cx="7.24" cy="2.651" r="1.125"></circle><circle cx="3.515" cy="5.83" r="1.125"></circle><circle cx="1.636" cy="10.353" r="1.125"></circle><circle cx="2.01" cy="15.235" r="1.125"></circle></svg>
+          Ваши действия
+          </MenuItem>
+        <MenuItem onClick={handleClose2} sx={{padding:"15px"}} className="dark:bg-[#232323] dark:hover:bg-[#000] dark:text-white"> <i className="fa-regular fa-bookmark text-[20px] mr-3"></i> Сохраненное</MenuItem>
+        <MenuItem      aria-controls={open2 ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open3 ? 'true' : undefined}
+        onClick={handleClick3} sx={{padding:"15px"}} className="dark:bg-[#232323] dark:hover:bg-[#000] dark:text-white">
+        <svg aria-label="Значок темы" className="x1lliihq x1n2onr6 dark:hidden mr-3" color="black" fill="black" height="18" role="img" viewBox="0 0 24 24" width="18"><title>Значок темы</title><path d="M11.502,22.99805A11.4313,11.4313,0,0,1,.49512,14.83691a.99889.99889,0,0,1,.251-.998,1.01148,1.01148,0,0,1,.99707-.249,9.43041,9.43041,0,0,0,2.75879.40821A9.5082,9.5082,0,0,0,13.5957,1.74023a1.00039,1.00039,0,0,1,1.24707-1.248A11.501,11.501,0,0,1,11.502,22.99805ZM3.08984,15.91211A9.49991,9.49991,0,0,0,21.002,11.498,9.57875,9.57875,0,0,0,15.916,3.08594,11.5083,11.5083,0,0,1,3.08984,15.91211Z"></path></svg>
+        <svg aria-label="Значок темы" className="x1lliihq x1n2onr6 hidden dark:block mr-3" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="18" role="img" viewBox="0 0 24 24" width="18"><title>Значок темы</title><path d="M11.502,22.99805A11.4313,11.4313,0,0,1,.49512,14.83691a.99889.99889,0,0,1,.251-.998,1.01148,1.01148,0,0,1,.99707-.249,9.43041,9.43041,0,0,0,2.75879.40821A9.5082,9.5082,0,0,0,13.5957,1.74023a1.00039,1.00039,0,0,1,1.24707-1.248A11.501,11.501,0,0,1,11.502,22.99805ZM3.08984,15.91211A9.49991,9.49991,0,0,0,21.002,11.498,9.57875,9.57875,0,0,0,15.916,3.08594,11.5083,11.5083,0,0,1,3.08984,15.91211Z"></path></svg>
+          Переключить тему
+          </MenuItem>
+        <MenuItem onClick={handleClose2} sx={{padding:"15px"}} className="dark:bg-[#232323] dark:hover:bg-[#000] dark:text-white">
+        <svg aria-label="Сообщение о проблеме" className="x1lliihq x1n2onr6 dark:hidden mr-3" color="black" fill="black" height="18" role="img" viewBox="0 0 24 24" width="18"><title>Сообщение о проблеме</title><path d="M18.001 1h-12a5.006 5.006 0 0 0-5 5v9.005a5.006 5.006 0 0 0 5 5h2.514l2.789 2.712a1 1 0 0 0 1.394 0l2.787-2.712h2.516a5.006 5.006 0 0 0 5-5V6a5.006 5.006 0 0 0-5-5Zm3 14.005a3.003 3.003 0 0 1-3 3h-2.936a1 1 0 0 0-.79.387l-2.274 2.212-2.276-2.212a1 1 0 0 0-.79-.387H6a3.003 3.003 0 0 1-3-3V6a3.003 3.003 0 0 1 3-3h12a3.003 3.003 0 0 1 3 3Zm-9-1.66a1.229 1.229 0 1 0 1.228 1.228A1.23 1.23 0 0 0 12 13.344Zm0-8.117a1.274 1.274 0 0 0-.933.396 1.108 1.108 0 0 0-.3.838l.347 4.861a.892.892 0 0 0 1.77 0l.348-4.86a1.106 1.106 0 0 0-.3-.838A1.272 1.272 0 0 0 12 5.228Z"></path></svg>
+        <svg aria-label="Сообщение о проблеме" className="x1lliihq x1n2onr6 hidden dark:block mr-3" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="18" role="img" viewBox="0 0 24 24" width="18"><title>Сообщение о проблеме</title><path d="M18.001 1h-12a5.006 5.006 0 0 0-5 5v9.005a5.006 5.006 0 0 0 5 5h2.514l2.789 2.712a1 1 0 0 0 1.394 0l2.787-2.712h2.516a5.006 5.006 0 0 0 5-5V6a5.006 5.006 0 0 0-5-5Zm3 14.005a3.003 3.003 0 0 1-3 3h-2.936a1 1 0 0 0-.79.387l-2.274 2.212-2.276-2.212a1 1 0 0 0-.79-.387H6a3.003 3.003 0 0 1-3-3V6a3.003 3.003 0 0 1 3-3h12a3.003 3.003 0 0 1 3 3Zm-9-1.66a1.229 1.229 0 1 0 1.228 1.228A1.23 1.23 0 0 0 12 13.344Zm0-8.117a1.274 1.274 0 0 0-.933.396 1.108 1.108 0 0 0-.3.838l.347 4.861a.892.892 0 0 0 1.77 0l.348-4.86a1.106 1.106 0 0 0-.3-.838A1.272 1.272 0 0 0 12 5.228Z"></path></svg>
+          Сообщение о проблеме
+          </MenuItem>
+        <MenuItem onClick={handleClose2} sx={{padding:"20px"}} className="dark:bg-[#232323] dark:hover:bg-[#000] dark:text-white">Переключите между аккаута...</MenuItem>
+
+
+        <MenuItem  sx={{padding:"20px" }} onClick={handleOpen4} className="dark:bg-[#232323] dark:hover:bg-[#000] dark:text-white">Выйти</MenuItem>
+      </Menu>
+
+
+      <Menu 
+       
+       id="basic-menu"
+       anchorEl={anchorEl3}
+       open={open3}
+       onClose={handleClose3}
+       MenuListProps={{
+         'aria-labelledby': 'basic-button',
+       }}
+     >
+       <MenuItem onClick={handleClose3} sx={{width:"300px"}} className="dark:bg-[#232323] dark:hover:bg-[#000] dark:text-white">
+        <div className="w-full flex justify-between">
+          <div>
+          <i className="fa-solid fa-chevron-left text-[20px] mr-3"></i>
+          Переключить тему
+          </div>
+          <div>
+
+          </div>
+        </div>
+       </MenuItem>
+       <MenuItem  className="dark:bg-[#232323] flex justify-between dark:hover:bg-[#000] dark:text-white">
+        <div className="flex w-full justify-between">
+          <div >
+             Ночной режим
+          </div>
+          <div className="flex justify-center">
+        <Switcher/>
+          </div>
+        </div>
+       </MenuItem>
+     
+     </Menu>
+
+
+     <Modal
+        open={open4}
+        onClose={handleClose4}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style} >
+        <div>
+      <p className="text-center text-2xl">Вы точно хотите выйти?</p>
+
+      <div className="w-full flex justify-evenly pt-8">
+        <button className="p-2 bg-[#000] w-[90px] text-white hover:bg-darkred">Нет</button>
+        <Link to={"/login"}>
+        <button className="p-2 bg-[#000] w-[90px] text-white hover:bg-darkblue">Да</button>
+        </Link>
+      </div>
+    </div>
+  
+        </Box>
+      </Modal>
         
        </footer>
         </div>

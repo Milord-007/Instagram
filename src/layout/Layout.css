@@ -5,3 +5,15 @@
 .btn_size{
   width: 10px !important;
 }
+
+.stories::-webkit-scrollbar {
+  width: 0.5em; /* Adjust the width as needed */
+}
+
+.stories::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Set the thumb color as transparent */
+}
+
+.stories::-webkit-scrollbar-thumb:hover {
+  background-color: transparent; /* Set the hover color as transparent */
+}

@@ -5,8 +5,9 @@ import { BrowserRouter as Router, createBrowserRouter, Route, RouterProvider, Ro
 import Layout from './layout/Layout'
 import Home from './pages/Home/Home'
 import SignUp from './pages/SignUp/SignUp';
-import Login from './pages/Login/Login';
+import Login from './pages/Login/Login'
 import Profile from './pages/Profile/Profile';
+import EditProfile from './pages/EditProfile/EditProfile';
 
 
 const router = createBrowserRouter([
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
       },
       {
         path: "editProfile",
-        // element:  <EditProfile/> 
+        element:  <EditProfile/> 
       },
       {
         path: "editPassword",
