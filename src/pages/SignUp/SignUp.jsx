@@ -2,12 +2,37 @@ import React, { useState } from "react";
 import logo from "./img/logo.png";
 import google from "./img/google.png";
 import links from "./img/links.png";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [emoil, setEmoil] = useState("");
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    const response = await fetch("http://localhost:3000/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emoil,
+        password,
+        name,
+        username
+      }),
+    });
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data) 
+      localStorage.setItem("token", data.accessToken);
+      navigate("/");
+    }
+  }
+
   return (
     <div className="bg-[#EFEFEF] py-[50px]">
       <div className="w-[40%] md:w-full mx-auto">
@@ -31,7 +56,11 @@ const SignUp = () => {
             </div>
             <p className="text-center mt-[15px]"> or </p>
             <div className="mt-[15px]">
-              <form action="" className="flex flex-col gap-y-5">
+              <form
+                action=""
+                className="flex flex-col gap-y-5"
+                onSubmit={handleSubmit}
+              >
                 <input
                   value={emoil}
                   onChange={(event) => setEmoil(event.target.value)}

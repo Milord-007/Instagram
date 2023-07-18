@@ -1,32 +1,51 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import Switcher from './components/Switcher';
-import { BrowserRouter as Router, createBrowserRouter, Route, RouterProvider, Routes } from 'react-router-dom';
-import Layout from './layout/Layout'
-import Home from './pages/Home/Home'
-import SignUp from './pages/SignUp/SignUp';
-import Login from './pages/Login/Login'
-import Profile from './pages/Profile/Profile';
-import EditProfile from './pages/EditProfile/EditProfile';
-import EditPassword from './pages/EditPassword/EditPassword';
-
+import React from "react";
+import { useTranslation } from "react-i18next";
+import Switcher from "./components/Switcher";
+import {
+  BrowserRouter as Router,
+  createBrowserRouter,
+  Route,
+  RouterProvider,
+  Routes,
+} from "react-router-dom";
+import Layout from "./layout/Layout";
+import Home from "./pages/Home/Home";
+import SignUp from "./pages/SignUp/SignUp";
+import Login from "./pages/Login/Login";
+import Profile from "./pages/Profile/Profile";
+import EditProfile from "./pages/EditProfile/EditProfile";
+import EditPassword from "./pages/EditPassword/EditPassword";
+import AuthCheck from "./utils/AuthCheck";
+import ProtectRoute from "./utils/ProtectedRoute";
 
 const router = createBrowserRouter([
-   {
+  {
     path: "signUp",
-    element:  <SignUp/> 
+    element: (
+      <AuthCheck>
+        <SignUp />
+      </AuthCheck>
+    ),
   },
   {
     path: "login",
-    element:<Login/> 
+    element: (
+      <AuthCheck>
+        <Login />{" "}
+      </AuthCheck>
+    ),
   },
-   {
+  {
     path: "/",
-    element: <Layout/> ,
+    element: (
+      <ProtectRoute>
+        <Layout />
+      </ProtectRoute>
+    ),
     children: [
       {
-        index:true,
-        element:  <Home/> 
+        index: true,
+        element: <Home />,
       },
 
       {
@@ -36,7 +55,7 @@ const router = createBrowserRouter([
 
       {
         path: "add",
-        // element:  <Add/> 
+        // element:  <Add/>
       },
 
       {
@@ -46,31 +65,27 @@ const router = createBrowserRouter([
 
       {
         path: "like",
-        // element: <Like/> 
+        // element: <Like/>
       },
       {
         path: "Profile",
-        element: <Profile/> 
+        element: <Profile />,
       },
       {
         path: "editProfile",
-        element:  <EditProfile/> 
+        element: <EditProfile />,
       },
       {
         path: "editPassword",
-        element: <EditPassword/> 
+        element: <EditPassword />,
       },
       {
         path: "direct",
         // element: <Direct/>
-      }
-    ]
-  }
-   
-  
-])
-
-
+      },
+    ],
+  },
+]);
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -81,7 +96,7 @@ const App = () => {
 
   return (
     <div>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
       {/* <Blog/> */}
       {/* <div className="w-full flex justify-center">
         <select onChange={(e) => changeLanguage(e.target.value)}>
@@ -90,7 +105,7 @@ const App = () => {
         </select>
       </div> */}
       {/* <div className="dark:bg-black"> */}
-        {/* <Switcher /> 939401739*/}
+      {/* <Switcher /> 939401739*/}
       {/* </div> */}
     </div>
   );
