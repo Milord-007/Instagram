@@ -15,6 +15,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [pic, setPic] = useState("");
 
+
   async function handleSubmit() {
     const response = await fetch("http://localhost:3000/api/login", {
       method: "POST",
@@ -28,7 +29,6 @@ const Login = () => {
     });
     if (response.ok) {
       const data = await response.json();
-
       localStorage.setItem("token", data.accessToken);
       navigate("/");
     }
@@ -74,13 +74,18 @@ const Login = () => {
                     />
                   </div>
                   <div className="mt-[10px]">
+                     
+                     
+                    
                     <input
                       value={password}
                       onChange={(event) => setPassword(event.target.value)}
                       placeholder="Password"
                       className="outline-none dark:bg-[#000] dark:border-none  pl-[20px] w-[100%] py-[8px] rounded-[5px] bg-[#FAFAFA] border-[#DBDBDB] border-[2px]"
-                      type="text"
+                      type="password"
                     />
+                    <div>
+                    </div>
                   </div>
                   <div className="mt-[20px]">
                     {(password.trim().length && emoil.trim().length) === 0 ? (

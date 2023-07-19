@@ -94,6 +94,8 @@ const SignUp = () => {
                   required
                   type="text"
                 />
+                 {password.length>0 && password.length<6? <span className="text-[red]">Password is too short</span>: null}
+
                 <button
                   type="submit"
                   className="w-[100%] py-[8px] rounded-[5px] bg-[#0095F6] text-[white]"
